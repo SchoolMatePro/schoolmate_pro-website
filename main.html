@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=index.html">
+  <title>SchoolMate Pro – Redirecting</title>
+  <link rel="canonical" href="index.html">
+  <script>
+    (function () {
+      var destination = new URL('index.html', window.location.href);
+      destination.hash = window.location.hash;
+      destination.search = window.location.search;
+      window.location.replace(destination.href);
+    })();
+  </script>
+</head>
+<body>
+  <p>SchoolMate Pro has moved to <a href="index.html">the new homepage</a>.</p>
+</body>
+</html>
