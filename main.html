@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#082b63" name="theme-color"/>
+<meta content="SchoolMate Pro is an offline desktop school management application for student, attendance, examination, fee and report management." name="description"/>
+<title>SchoolMate Pro | School Data Management App</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   GLOBAL RESET & VARIABLES (contact.html unified theme)
+   ============================================================ */
+:root{
+  --navy:#082b63;
+  --blue:#1456a0;
+  --blue2:#287bd0;
+  --red:#ed2939;
+  --orange:#ff8a24;
+  --ink:#15243a;
+  --muted:#607087;
+  --pale:#f2f7ff;
+  --line:#dce7f5;
+  --white:#fff;
+  --shadow:0 22px 60px rgba(5,35,80,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+  background:#f8faff;
+}
+a{text-decoration:none;color:inherit}
+
+/* ============================================================
+   LAYOUT CONTAINER (full-width, contact.html style)
+   ============================================================ */
+.container{
+  width:100%;
+  max-width:none;
+  margin:auto;
+  padding-left:clamp(18px,4vw,72px);
+  padding-right:clamp(18px,4vw,72px);
+}
+
+/* ============================================================
+   HEADER / NAV (contact.html exact)
+   ============================================================ */
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(11,43,94,.95);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.navbar{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:14px 24px;
+}
+.logo-area{display:flex;align-items:center;gap:13px;min-width:0}
+.logo-img{
+  display:block;
+  width:76px;
+  height:68px;
+  max-height:68px;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+.brand-copy{display:flex;flex-direction:column;line-height:1.2}
+.brand-name{
+  color:#fff;
+  font-size:clamp(17px,1.6vw,23px);
+  font-weight:800;
+  letter-spacing:-.45px;
+}
+.brand-description{color:#dce9ff;font-size:12px;font-weight:600;margin-top:3px}
+.brand-tagline{
+  color:#ffd966;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.45px;
+  margin-top:4px;
+}
+.brand-tagline span{color:#9fc7ff;padding:0 3px}
+
+.nav-links{display:flex;gap:28px;align-items:center;font-weight:500}
+.nav-links a{color:#eef4ff;font-size:.95rem;transition:.2s;white-space:nowrap}
+.nav-links a:hover{color:#ffd966}
+.btn-outline-light{
+  border:1.5px solid rgba(255,255,255,.5);
+  padding:8px 20px;
+  border-radius:40px;
+  color:#fff;
+  background:transparent;
+  font-weight:600;
+  font-size:.9rem;
+  cursor:pointer;
+  transition:.2s;
+}
+.btn-outline-light:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+.menu-toggle{display:none;font-size:1.8rem;color:#fff;cursor:pointer}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section{padding:80px 0}
+.section-white{background:#fff}
+.section-alt{background:var(--pale)}
+
+.section-title{text-align:center;margin-bottom:48px}
+.section-title h2{
+  font-size:clamp(24px,3vw,34px);
+  font-weight:800;
+  color:#0b2b5e;
+  letter-spacing:-.5px;
+  margin-bottom:12px;
+}
+.section-title p{
+  color:#475569;
+  font-size:1.1rem;
+  max-width:700px;
+  margin:0 auto;
+}
+.accent{color:#d32f2f}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  padding:60px 0 70px;
+  background:linear-gradient(145deg,#f0f7ff 0%,#ffffff 100%);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-20%;
+  right:-10%;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,rgba(43,108,176,.08) 0%,transparent 70%);
+  border-radius:50%;
+  z-index:0;
+  animation:pulseGlow 6s ease-in-out infinite;
+}
+@keyframes pulseGlow{
+  0%,100%{transform:scale(1);opacity:.8}
+  50%{transform:scale(1.1);opacity:1}
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+.hero-content h1{
+  font-size:clamp(38px,5vw,59px);
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-2.4px;
+  color:#092b60;
+  margin-bottom:22px;
+}
+.gradient-text{
+  background:linear-gradient(100deg,#1456a0,#287bd0 60%,#ed2939);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-highlight{
+  background:linear-gradient(120deg,#03f977,#2b6cb0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-content p{
+  font-size:17px;
+  color:#52647b;
+  max-width:570px;
+  margin-bottom:30px;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#e8f0fe;
+  padding:6px 16px;
+  border-radius:40px;
+  font-weight:600;
+  font-size:.85rem;
+  color:#1e4a8b;
+  margin-bottom:20px;
+  border:1px solid rgba(30,74,139,.15);
+  animation:fadeInUp .6s ease-out;
+}
+.hero-badge i{color:#2e7d32}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.btn-group{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:linear-gradient(135deg,#1e4a8b,#2b6cb0);
+  border:1px solid rgba(255,255,255,.2);
+  padding:14px 32px;
+  border-radius:50px;
+  color:#fff;
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 12px 20px -8px rgba(30,74,139,.4);
+  transition:all .3s ease;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transition:left .5s;
+}
+.btn-primary:hover::after{left:100%}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 28px -8px rgba(30,74,139,.5)}
+.btn-primary i{font-size:1rem}
+
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:transparent;
+  border:2px solid #1e4a8b;
+  color:#1e4a8b;
+  padding:12px 28px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn-secondary:hover{background:#1e4a8b;color:#fff;transform:translateY(-2px)}
+
+/* ============================================================
+   SCREENSHOT SLIDER
+   ============================================================ */
+.smpro-slider{
+  position:relative;
+  width:100%;
+  min-width:0;
+  padding:14px;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 40px 60px -20px rgba(0,20,50,.28),0 0 0 1px rgba(30,74,139,.1);
+  overflow:hidden;
+}
+.smpro-slider-viewport{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:#eef4fb;
+  aspect-ratio:16/9;
+}
+.smpro-slide{display:none;width:100%;height:100%;margin:0}
+.smpro-slide.active{display:block;animation:smproFadeIn .45s ease}
+.smpro-slide img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#f5f8fc;
+}
+@keyframes smproFadeIn{from{opacity:.45}to{opacity:1}}
+.smpro-slider-caption{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 4px 3px;
+  color:#173b69;
+  font-size:.88rem;
+  font-weight:700;
+}
+.smpro-slider-count{
+  color:#72839a;
+  font-size:.75rem;
+  font-weight:600;
+  white-space:nowrap;
+}
+.smpro-slider-controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 3px 0;
+}
+.smpro-slider-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border:1px solid #d5e2f2;
+  border-radius:50%;
+  background:#fff;
+  color:#174d8b;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.smpro-slider-arrow:hover{background:#174d8b;color:#fff;border-color:#174d8b}
+.smpro-slider-dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.smpro-slider-dot{
+  width:7px;
+  height:7px;
+  padding:0;
+  border:0;
+  border-radius:20px;
+  background:#c6d5e8;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.smpro-slider-dot.active{width:21px;background:#1e4a8b}
+
+/* ============================================================
+   FEATURES GRID
+   ============================================================ */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.feature-card{
+  background:#f9fcff;
+  border-radius:24px;
+  padding:32px 24px;
+  border:1px solid #e2eaf5;
+  transition:all .3s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,.02);
+  position:relative;
+  overflow:hidden;
+}
+.feature-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,#1e4a8b,#2b6cb0);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-card:hover{
+  transform:translateY(-6px);
+  border-color:#b8d0ff;
+  box-shadow:0 24px 40px -16px rgba(30,74,139,.15);
+}
+.feature-icon{
+  width:60px;
+  height:60px;
+  background:linear-gradient(135deg,#e8f0fe,#ffffff);
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:24px;
+  border:1px solid #cddff5;
+  transition:all .3s ease;
+}
+.feature-card:hover .feature-icon{
+  transform:scale(1.1) rotate(-5deg);
+  background:linear-gradient(135deg,#3aef07,#2b6cb0);
+  border-color:#1e4a8b;
+}
+.feature-card:hover .feature-icon i{color:#fff}
+.feature-icon i{font-size:28px;color:#1e4a8b;transition:color .3s ease}
+.feature-card h3{
+  font-size:1.4rem;
+  font-weight:700;
+  color:#0b2b5e;
+  margin-bottom:12px;
+}
+.feature-card p{color:#475569;font-size:.98rem}
+
+/* ============================================================
+   MODULES GRID
+   ============================================================ */
+.modules-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+}
+.module-item{
+  background:#fff;
+  border-radius:20px;
+  padding:28px 20px;
+  text-align:center;
+  box-shadow:0 6px 14px rgba(0,0,0,.02);
+  border:1px solid #dfe9f5;
+  transition:all .3s ease;
+  cursor:default;
+}
+.module-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px -8px rgba(30,74,139,.12);
+  border-color:#b8d0ff;
+}
+.module-item i{
+  font-size:34px;
+  color:#1e4a8b;
+  margin-bottom:16px;
+  background:#e8f0fe;
+  padding:14px;
+  border-radius:16px;
+  transition:all .3s ease;
+  display:inline-block;
+}
+.module-item:hover i{
+  background:#1e4a8b;
+  color:#fff;
+  transform:rotate(-5deg);
+}
+.module-item h4{
+  font-weight:700;
+  color:#0b2b5e;
+  margin-bottom:8px;
+  font-size:1.1rem;
+}
+.module-item p{font-size:.9rem;color:#64748b}
+
+/* ============================================================
+   WHATSAPP SECTION
+   ============================================================ */
+.whatsapp-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+}
+.whatsapp-content h2{
+  font-size:clamp(24px,3vw,34px);
+  font-weight:800;
+  color:#0b2b5e;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+.whatsapp-content h2 i{color:#25D366}
+.whatsapp-content p{color:#475569;margin-bottom:20px}
+.whatsapp-feature-list{list-style:none;margin:24px 0}
+.whatsapp-feature-list li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+  font-size:1.05rem;
+}
+.whatsapp-feature-list i{color:#25D366;font-size:1.2rem;width:24px}
+.whatsapp-preview{
+  background:#e5f7ed;
+  border-radius:32px;
+  padding:24px;
+  border:1px solid #b7e4c7;
+  box-shadow:0 20px 30px -10px rgba(37,211,102,.15);
+}
+.wa-mockup{
+  background:#fff;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+.wa-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid #e2e8f0;
+}
+.wa-avatar{
+  width:40px;
+  height:40px;
+  background:#1e4a8b;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:700;
+}
+.wa-msg{
+  background:#f1f5f9;
+  border-radius:16px 16px 16px 4px;
+  padding:12px 16px;
+  width:80%;
+  margin-bottom:10px;
+}
+.wa-msg p{font-size:.9rem;margin-bottom:4px}
+.wa-msg .time{font-size:.7rem;color:#94a3b8;text-align:right}
+.wa-msg.outgoing{
+  background:#dcf8c5;
+  margin-left:auto;
+  border-radius:16px 16px 4px 16px;
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(12px,1.5vw,24px);
+  margin-top:30px;
+}
+.pricing-card{
+  background:#fff;
+  border-radius:28px;
+  padding:40px 30px;
+  box-shadow:0 10px 25px rgba(0,0,0,.02);
+  border:1px solid #dfe9f5;
+  transition:all .3s ease;
+  display:flex;
+  flex-direction:column;
+}
+.pricing-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 40px -16px rgba(30,74,139,.2);
+}
+.pricing-card.popular{
+  border:2px solid #1e4a8b;
+  box-shadow:0 24px 40px -16px rgba(30,74,139,.25);
+  position:relative;
+  transform:scale(1.02);
+}
+.pricing-card.popular:hover{transform:scale(1.02) translateY(-6px)}
+.popular-tag{
+  background:#d32f2f;
+  color:#fff;
+  padding:6px 16px;
+  border-radius:40px;
+  font-size:.8rem;
+  font-weight:700;
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  letter-spacing:.5px;
+  animation:bounceTag 2s ease-in-out infinite;
+}
+@keyframes bounceTag{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-4px)}
+}
+.pricing-card h3{
+  font-size:1.6rem;
+  font-weight:800;
+  color:#0b2b5e;
+  margin-bottom:8px;
+}
+.price{
+  font-size:3rem;
+  font-weight:800;
+  color:#1e4a8b;
+  line-height:1;
+  margin:20px 0 10px;
+}
+.price span{font-size:1rem;font-weight:500;color:#64748b}
+.pricing-features{list-style:none;margin:30px 0;flex:1}
+.pricing-features li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  color:#334155;
+}
+.pricing-features i{color:#2b6cb0;font-size:1.1rem}
+
+/* ============================================================
+   CONTACT SECTION (contact.html exact)
+   ============================================================ */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:start;
+}
+.contact-info h2{
+  font-size:clamp(24px,3vw,34px);
+  font-weight:800;
+  color:#0b2b5e;
+  margin-bottom:18px;
+  line-height:1.2;
+}
+.contact-info p.lead{font-size:1.1rem;color:#475569;margin-bottom:28px}
+.contact-details{margin:20px 0}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:24px;
+  font-size:1.05rem;
+  transition:transform .2s ease;
+}
+.contact-item:hover{transform:translateX(4px)}
+.contact-item i{
+  width:48px;
+  height:48px;
+  background:#e8f0fe;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1e4a8b;
+  font-size:1.3rem;
+  transition:all .3s ease;
+  flex:0 0 auto;
+}
+.contact-item:hover i{background:#1e4a8b;color:#fff;transform:rotate(-5deg)}
+
+.contact-form{
+  background:#f8faff;
+  padding:36px;
+  border-radius:28px;
+  border:1px solid #dfe9f5;
+  transition:box-shadow .3s ease;
+}
+.contact-form:hover{box-shadow:0 20px 40px -12px rgba(30,74,139,.1)}
+.contact-form h3{
+  font-size:1.6rem;
+  font-weight:700;
+  color:#0b2b5e;
+  margin-bottom:24px;
+}
+.form-group{margin-bottom:18px}
+.form-group label{
+  display:block;
+  font-weight:600;
+  font-size:.9rem;
+  margin-bottom:6px;
+  color:#334155;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid #d0dae8;
+  font-family:inherit;
+  font-size:1rem;
+  background:#fff;
+  transition:.2s;
+  outline:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#2b6cb0;
+  box-shadow:0 0 0 4px rgba(43,108,176,.1);
+  transform:translateY(-1px);
+}
+
+/* ============================================================
+   FOOTER (contact.html exact)
+   ============================================================ */
+footer{background:#0b1e3a;color:#b8c9e8;padding:50px 0 30px}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.5fr;
+  gap:40px;
+  margin-bottom:40px;
+}
+.footer-brand-lockup{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.footer-brand-lockup .logo-img{
+  display:block;
+  width:76px;
+  height:68px;
+  max-height:68px;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+.footer-brand-lockup .brand-copy{display:flex;flex-direction:column;line-height:1.2}
+.footer-brand-lockup .brand-name{color:#fff;font-size:22px;font-weight:800}
+.footer-brand-lockup .brand-description{color:#dce9ff;font-size:12px;font-weight:600;margin-top:3px}
+.footer-brand-lockup .brand-tagline{color:#ffd966;font-size:10px;font-weight:700;letter-spacing:.45px;margin-top:4px}
+.footer-brand-lockup .brand-tagline span{color:#9fc7ff;padding:0 3px}
+.footer-brand p{margin:16px 0;font-size:.95rem;line-height:1.7;color:#a0b8dd}
+.footer-links h4{color:#fff;font-weight:700;margin-bottom:20px;font-size:1.1rem}
+.footer-links a{display:block;color:#b8c9e8;margin-bottom:12px;font-size:.95rem;transition:.2s}
+.footer-links a:hover{color:#ffd966;transform:translateX(4px)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.9rem;
+  color:#8aa3c9;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none}
+  .menu-toggle{display:block}
+  .navbar{padding:12px 20px}
+  .hero-grid,
+  .whatsapp-grid,
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .navbar{padding-top:10px;padding-bottom:10px}
+  .logo-img{width:58px;height:54px}
+  .brand-name{font-size:17px}
+  .brand-description{font-size:10px}
+  .brand-tagline{font-size:9px}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .contact-form{padding:24px}
+  .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .smpro-slider{padding:9px;border-radius:20px}
+  .smpro-slider-viewport{border-radius:13px}
+  .smpro-slider-caption{font-size:.75rem;padding-top:10px}
+  .smpro-slider-controls{padding-top:7px}
+  .smpro-slider-arrow{width:32px;height:32px}
+  .smpro-slider-dots{gap:5px}
+  .smpro-slider-dot{width:6px;height:6px}
+  .smpro-slider-dot.active{width:16px}
+}
+@media (max-width:520px){
+  .logo-area{gap:8px}
+  .logo-img{width:48px;height:48px}
+  .footer-brand-lockup{gap:9px}
+  .footer-brand-lockup .logo-img{width:58px;height:54px}
+  .footer-brand-lockup .brand-name{font-size:18px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .pricing-grid{grid-template-columns:1fr}
+  .hero-content h1{font-size:1.9rem}
+  .btn-group{flex-direction:column;align-items:flex-start}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAVIGATION (contact.html exact)
+     ============================================================ -->
+<header>
+  <div class="container navbar">
+    <div class="logo-area">
+      <img alt="SchoolMate Pro Logo" class="logo-img" src="assets/schoolmate-pro-logo.png" />
+      <div class="brand-copy">
+        <div class="brand-name">SchoolMate Pro</div>
+        <div class="brand-description">School Data Management App</div>
+        <div class="brand-tagline">Simple <span>|</span> Smart <span>|</span> Secure</div>
+      </div>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="about.html">About</a>
+      <a href="#features">Features</a>
+      <a href="#modules">Modules</a>
+      <a href="#whatsapp">WhatsApp</a>
+      <a href="#pricing">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a class="btn-outline-light" href="https://drive.google.com/file/d/1eaLpECCFVUjSjmtJNES6nn9oEG2QC7D_/view?usp=drive_link" target="_blank" rel="noopener"><i class="fas fa-download" style="margin-right:6px;"></i> Demo</a>
+      <a href="download.html">Download &amp; Install</a>
+    </nav>
+    <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" role="button" tabindex="0">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     HOME / HERO SECTION
+     ============================================================ -->
+<section class="section hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-bolt"></i> Offline Desktop Application · Multi-School Ready
+      </div>
+      <h1>
+        Manage Your School <span class="gradient-text">Smarter.</span>
+        <br><span class="hero-highlight">with WhatsApp Integration</span>
+      </h1>
+      <p>
+        SchoolMate Pro is a powerful offline desktop software that simplifies
+        multi-school administration, student tracking, fee management, and
+        real-time parent communication <span style="color:#2b6cb0;">via WhatsApp</span> — simple and effortless.
+      </p>
+      <div class="btn-group">
+        <a class="btn-primary" href="https://drive.google.com/file/d/1eaLpECCFVUjSjmtJNES6nn9oEG2QC7D_/view?usp=drive_link" target="_blank" rel="noopener">
+          <i class="fas fa-download"></i> Download Demo ZIP
+        </a>
+        <a class="btn-secondary" href="#pricing">
+          <i class="fas fa-tag"></i> View Pricing
+        </a>
+      </div>
+    </div>
+
+    <!-- Screenshot slider -->
+    <div aria-label="SchoolMate Pro application screenshots" class="smpro-slider" id="schoolMateScreenshotSlider">
+      <div class="smpro-slider-viewport">
+        <figure class="smpro-slide active" data-caption="SchoolMate Pro Login">
+          <img alt="SchoolMate Pro Login screenshot" loading="eager" src="assets/Screenshot 2026-11-19 161555.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="School Dashboard">
+          <img alt="School Dashboard screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 162012.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Dashboard Overview">
+          <img alt="Dashboard Overview screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 162101.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Reports Centre">
+          <img alt="Reports Centre screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163142.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Student Records">
+          <img alt="Student Records screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163213.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Examination Setup">
+          <img alt="Examination Setup screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163259.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Hall Ticket Generation">
+          <img alt="Hall Ticket Generation screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163338.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Class Teacher Attendance Links">
+          <img alt="Class Teacher Attendance Links screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163416.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="New Admission">
+          <img alt="New Admission screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163511.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Fee Receipt Preview">
+          <img alt="Fee Receipt Preview screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163611.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Fees Management">
+          <img alt="Fees Management screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163652.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Student Fee Details">
+          <img alt="Student Fee Details screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163834.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Fee Collection Overview">
+          <img alt="Fee Collection Overview screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 163945.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Fee Structure &amp; Records">
+          <img alt="Fee Structure &amp; Records screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 164031.png"/>
+        </figure>
+        <figure class="smpro-slide" data-caption="Fees Report Centre">
+          <img alt="Fees Report Centre screenshot" loading="lazy" src="assets/Screenshot 2026-11-19 164136.png"/>
+        </figure>
+      </div>
+      <div class="smpro-slider-caption">
+        <span id="smproSlideCaption">SchoolMate Pro Login</span>
+        <span class="smpro-slider-count" id="smproSlideCount">01 / 15</span>
+      </div>
+      <div class="smpro-slider-controls">
+        <button aria-label="Previous screenshot" class="smpro-slider-arrow" id="smproPrevSlide" type="button"><i class="fas fa-chevron-left"></i></button>
+        <div aria-label="Choose screenshot" class="smpro-slider-dots" id="smproSliderDots">
+          <button aria-label="Show screenshot 1" class="smpro-slider-dot active" data-slide="0" type="button"></button>
+          <button aria-label="Show screenshot 2" class="smpro-slider-dot" data-slide="1" type="button"></button>
+          <button aria-label="Show screenshot 3" class="smpro-slider-dot" data-slide="2" type="button"></button>
+          <button aria-label="Show screenshot 4" class="smpro-slider-dot" data-slide="3" type="button"></button>
+          <button aria-label="Show screenshot 5" class="smpro-slider-dot" data-slide="4" type="button"></button>
+          <button aria-label="Show screenshot 6" class="smpro-slider-dot" data-slide="5" type="button"></button>
+          <button aria-label="Show screenshot 7" class="smpro-slider-dot" data-slide="6" type="button"></button>
+          <button aria-label="Show screenshot 8" class="smpro-slider-dot" data-slide="7" type="button"></button>
+          <button aria-label="Show screenshot 9" class="smpro-slider-dot" data-slide="8" type="button"></button>
+          <button aria-label="Show screenshot 10" class="smpro-slider-dot" data-slide="9" type="button"></button>
+          <button aria-label="Show screenshot 11" class="smpro-slider-dot" data-slide="10" type="button"></button>
+          <button aria-label="Show screenshot 12" class="smpro-slider-dot" data-slide="11" type="button"></button>
+          <button aria-label="Show screenshot 13" class="smpro-slider-dot" data-slide="12" type="button"></button>
+          <button aria-label="Show screenshot 14" class="smpro-slider-dot" data-slide="13" type="button"></button>
+          <button aria-label="Show screenshot 15" class="smpro-slider-dot" data-slide="14" type="button"></button>
+        </div>
+        <button aria-label="Next screenshot" class="smpro-slider-arrow" id="smproNextSlide" type="button"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES SECTION
+     ============================================================ -->
+<section class="section section-white" id="features">
+  <div class="container">
+    <div class="section-title">
+      <h2>Complete <span class="accent">Software Features</span></h2>
+      <p>Everything you need to run your school efficiently — offline, secure, and WhatsApp-ready.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-school"></i></div>
+        <h3>Multi-School Management</h3>
+        <p>Manage all school sections from a single dashboard. Keep data, fee structures, and students completely separate for each school.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+        <h3>WhatsApp Integration</h3>
+        <p>Send Fee Reminders, Paid Fee Receipts, Attendance Alerts &amp; Class Teacher Attendance Link.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-desktop"></i></div>
+        <h3>Offline Desktop Application</h3>
+        <p>Works without internet. All data stored securely on your local machine — no cloud dependency.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Advanced Reporting</h3>
+        <p>Generate student details reports, fee collection reports, and attendance summaries — class-wise.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+        <h3>Examination &amp; Reports</h3>
+        <p>Manage examinations, marks, cumulative &amp; descriptive assessments, and complete academic reports.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+        <h3>Fees Management</h3>
+        <p>Manage fee structures, fee collection, receipts, and outstanding fee details. Send fee-related messages and reminders automatically.</p>
+        <p>✅ Fee-related messages and reminders</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULES SECTION
+     ============================================================ -->
+<section class="section section-alt" id="modules">
+  <div class="container">
+    <div class="section-title">
+      <h2>School Administration Made <span class="accent">Organised</span></h2>
+      <p>Purpose-focused modules help keep key school records together.</p>
+    </div>
+    <div class="modules-grid">
+      <div class="module-item">
+        <i class="fas fa-user-plus"></i>
+        <h4>New Admission</h4>
+        <p>Manage new admission details and create student profiles easily.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-people-group"></i>
+        <h4>Student Profile Management</h4>
+        <p>Manage complete Student Information, Records, Documents &amp; History in one place.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-calendar-days"></i>
+        <h4>Academic Year</h4>
+        <p>Manage everything academic year-wise.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-calendar-check"></i>
+        <h4>Student Attendance</h4>
+        <p>Daily and monthly attendance with attendance alerts on WhatsApp.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-indian-rupee-sign"></i>
+        <h4>Fees Collection</h4>
+        <p>Fee structure, collection, receipts &amp; class-wise reports. Balance fee report — month-wise, class-wise.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-file-pen"></i>
+        <h4>Examinations</h4>
+        <p>Define subjects, set up exams, and enter marks easily.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-award"></i>
+        <h4>Progress Cards</h4>
+        <p>Cumulative and descriptive assessment with class-wise topper. Class photo on final progress card.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-file-lines"></i>
+        <h4>Reports &amp; Certificates</h4>
+        <p>12 types of student details reports, Bonafide Certificate (BFC), Nirgam / Leaving Certificate.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-right-left"></i>
+        <h4>Import / Export</h4>
+        <p>Data import and export facilities.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-id-card"></i>
+        <h4>Transfer Certificate</h4>
+        <p>School-wise TC generation and record maintenance.</p>
+      </div>
+      <div class="module-item">
+        <i class="fab fa-whatsapp"></i>
+        <h4>WhatsApp Messages</h4>
+        <p>Attendance and fee-related messages.</p>
+      </div>
+      <div class="module-item">
+        <i class="fas fa-chart-pie"></i>
+        <h4>Dashboard &amp; Analytics</h4>
+        <p>Key school information at a glance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHATSAPP SECTION
+     ============================================================ -->
+<section class="section section-white" id="whatsapp">
+  <div class="container whatsapp-grid">
+    <div class="whatsapp-content">
+      <h2><i class="fab fa-whatsapp"></i> WhatsApp Integration</h2>
+      <p style="font-size:1.1rem;color:#475569;margin-bottom:20px;">
+        Connect with parents instantly. Automate messages and save hours of manual work.
+      </p>
+      <ul class="whatsapp-feature-list">
+        <li><i class="fas fa-check-circle"></i> Fee reminder &amp; payment confirmation</li>
+        <li><i class="fas fa-check-circle"></i> Attendance alerts to parents</li>
+        <li><i class="fas fa-check-circle"></i> Exam results &amp; report card notifications</li>
+        <li><i class="fas fa-check-circle"></i> Class Teacher Link — For daily student attendance &amp; absent student reports to parents.</li>
+        <li><i class="fas fa-check-circle"></i> Works with your existing WhatsApp number</li>
+      </ul>
+      <a class="btn-primary" href="#contact" style="margin-top:12px;">
+        <i class="fab fa-whatsapp"></i> Request WhatsApp Integration
+      </a>
+    </div>
+    <div class="whatsapp-preview">
+      <div class="wa-mockup">
+        <div class="wa-header">
+          <div class="wa-avatar">SP</div>
+          <div><strong>SchoolMate Pro</strong><br/><span style="font-size:0.8rem;color:#64748b;">Automated notification</span></div>
+        </div>
+        <div class="wa-msg">
+          <p><strong>Fee Reminder</strong><br/>Dear Parent, the quarterly fee for Roll No. 12 is due on 15th Nov. Kindly pay via portal.</p>
+          <div class="time">10:30 AM</div>
+        </div>
+        <div class="wa-msg outgoing">
+          <p>Thank you for the update. We will pay by tomorrow.</p>
+          <div class="time">10:32 AM</div>
+        </div>
+        <div class="wa-msg">
+          <p>✅ Payment received. Receipt No: #FEE-2024-9812</p>
+          <div class="time">11:05 AM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="section section-alt" id="pricing">
+  <div class="container">
+    <div class="section-title">
+      <h2>Yearly <span class="accent">Subscription Plans</span></h2>
+      <p>Simple pricing for every school size. All plans include offline desktop app &amp; WhatsApp integration.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <p style="color:#64748b;">For small Pre-Primary schools</p>
+        <div class="price">₹9,999<span>/year</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 300-500 students</li>
+          <li><i class="fas fa-check"></i> Single Pre-Primary school included</li>
+          <li><i class="fas fa-check"></i> Offline desktop app</li>
+          <li><i class="fas fa-check"></i> WhatsApp alerts</li>
+          <li><i class="fas fa-check"></i> Offline activation</li>
+        </ul>
+        <a class="btn-primary" href="#contact" style="margin-top:12px;width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+      <div class="pricing-card popular">
+        <div class="popular-tag">Most Popular</div>
+        <h3>Professional</h3>
+        <p style="color:#64748b;">For growing Primary Schools</p>
+        <div class="price">₹14,999<span>/year</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 1000 students</li>
+          <li><i class="fas fa-check"></i> Two School Sections included</li>
+          <li><i class="fas fa-check"></i> Offline desktop app</li>
+          <li><i class="fas fa-check"></i> Two School section tracking dashboard</li>
+          <li><i class="fas fa-check"></i> WhatsApp alerts</li>
+          <li><i class="fas fa-check"></i> Priority support</li>
+        </ul>
+        <a class="btn-primary" href="#contact" style="margin-top:12px;width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <p style="color:#64748b;">For growing Primary school &amp; High School</p>
+        <div class="price">₹19,999<span>/year</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 1500 students</li>
+          <li><i class="fas fa-check"></i> Three School &amp; High School Sections included</li>
+          <li><i class="fas fa-check"></i> Offline desktop app</li>
+          <li><i class="fas fa-check"></i> Three School section tracking dashboard</li>
+          <li><i class="fas fa-check"></i> WhatsApp alerts</li>
+          <li><i class="fas fa-check"></i> Priority support</li>
+        </ul>
+        <a class="btn-primary" href="#contact" style="margin-top:12px;width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise Plus</h3>
+        <p style="color:#64748b;">For large institutions with Jr. College</p>
+        <div class="price">₹24,999<span>/year</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Unlimited students</li>
+          <li><i class="fas fa-check"></i> All School Sections &amp; Jr. College</li>
+          <li><i class="fas fa-check"></i> Offline desktop app</li>
+          <li><i class="fas fa-check"></i> Unlimited WhatsApp alerts</li>
+          <li><i class="fas fa-check"></i> Custom license tracking</li>
+          <li><i class="fas fa-check"></i> Dedicated account manager</li>
+        </ul>
+        <a class="btn-primary" href="#contact" style="margin-top:12px;width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION (contact.html exact)
+     ============================================================ -->
+<section class="section section-white" id="contact">
+  <div class="container contact-grid">
+    <!-- Info column -->
+    <div class="contact-info">
+      <h2>Get <span style="color:#d32f2f;">Demo</span> &amp; Online Activation</h2>
+      <p class="lead">
+        Download the demo, request a license key, or track your existing license.
+        Our team is here to help.
+      </p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fas fa-download"></i>
+          <div><strong>Demo Download</strong><br /><span style="color:#64748b;">Windows desktop installer (offline)</span></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-key"></i>
+          <div><strong>Online Activation</strong><br /><span style="color:#64748b;">Instant license key via email</span></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clipboard-list"></i>
+          <div><strong>License Tracking</strong><br /><span style="color:#64748b;">View your license status &amp; expiry</span></div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+          <div><strong>WhatsApp Support</strong><br /><span style="color:#64748b;">Chat with us on WhatsApp</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form column -->
+    <div class="contact-form">
+      <h3>Request Demo / Activation</h3>
+      <form id="schoolmateEnquiryForm" novalidate>
+        <div class="form-group">
+          <label for="enquiryName">Full Name *</label>
+          <input id="enquiryName" name="name" type="text" maxlength="100" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="enquiryMobile">Mobile / WhatsApp Number *</label>
+          <input id="enquiryMobile" name="mobile" type="tel" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required />
+        </div>
+        <div class="form-group">
+          <label for="enquiryEmail">Email Address</label>
+          <input id="enquiryEmail" name="email" type="email" maxlength="120" placeholder="you@school.com" />
+        </div>
+        <div class="form-group">
+          <label for="enquirySchool">School / Institution *</label>
+          <input id="enquirySchool" name="school" type="text" maxlength="150" placeholder="School name" required />
+        </div>
+        <div class="form-group">
+          <label for="enquiryType">Request Type *</label>
+          <select id="enquiryType" name="requestType" required>
+            <option value="">Select request type</option>
+            <option>Demo Request</option>
+            <option>Subscription Enquiry</option>
+            <option>Support</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="enquiryPlan">Interested Plan</label>
+          <select id="enquiryPlan" name="plan">
+            <option value="">Not decided</option>
+            <option>Starter</option>
+            <option>Professional</option>
+            <option>Enterprise</option>
+            <option>Enterprise Plus</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="enquiryMessage">Message</label>
+          <textarea id="enquiryMessage" name="message" maxlength="1000" rows="3" placeholder="Tell us what you need..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">
+          <i class="fab fa-whatsapp"></i> Send Enquiry on WhatsApp
+        </button>
+        <p id="enquiryFormStatus" role="status" aria-live="polite" style="font-size:12px;color:#64748b;margin-top:10px;">
+          Your enquiry will open in WhatsApp for you to review and send.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER (contact.html exact)
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-lockup">
+          <img alt="SchoolMate Pro Logo" class="logo-img" src="assets/schoolmate-pro-logo.png" />
+          <div class="brand-copy">
+            <div class="brand-name">SchoolMate Pro</div>
+            <div class="brand-description">School Data Management App</div>
+            <div class="brand-tagline">Simple <span>|</span> Smart <span>|</span> Secure</div>
+          </div>
+        </div>
+        <p>AI-Powered Modern Offline School Management Software with WhatsApp Integration. Multi-School, Secure, and Built for Indian Schools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Product</h4>
+        <a href="about.html">About SchoolMate Pro</a>
+        <a href="features.html">Features &amp; Modules</a>
+        <a href="#features">Features</a>
+        <a href="#modules">Modules</a>
+        <a href="#pricing">Pricing</a>
+        <a href="download.html">Demo Download</a>
+        <a href="download.html">Download &amp; Installation Guide</a>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html">Online Activation</a>
+        <a href="contact.html">License Tracking</a>
+        <a href="#whatsapp">WhatsApp Integration</a>
+      </div>
+      <div class="footer-links">
+        <h4>Get in Touch</h4>
+        <a href="https://wa.me/918329201181" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Chat with us on WhatsApp</a>
+        <a href="mailto:hello@schoolmatepro.com"><i class="fas fa-envelope"></i> hello@schoolmatepro.com</a>
+        <a href="#"><i class="fas fa-globe"></i> www.schoolmatepro.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 SchoolMate Pro. All rights reserved.</div>
+      <div><i class="fas fa-shield-alt"></i> Secure &amp; Offline</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   MOBILE NAV (contact.html exact)
+   ============================================================ */
+(function () {
+  var menu = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  if (!menu || !nav) return;
+
+  menu.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    if (open) {
+      nav.style.display = 'flex';
+      nav.style.position = 'absolute';
+      nav.style.top = '72px';
+      nav.style.left = '0';
+      nav.style.right = '0';
+      nav.style.background = '#0b2b5e';
+      nav.style.flexDirection = 'column';
+      nav.style.padding = '24px';
+      nav.style.gap = '16px';
+      nav.style.zIndex = '999';
+      nav.style.borderRadius = '0 0 24px 24px';
+    } else {
+      nav.style.display = '';
+      nav.style.position = '';
+      nav.style.top = '';
+      nav.style.left = '';
+      nav.style.right = '';
+      nav.style.background = '';
+      nav.style.flexDirection = '';
+      nav.style.padding = '';
+      nav.style.gap = '';
+      nav.style.zIndex = '';
+      nav.style.borderRadius = '';
+    }
+  });
+})();
+
+/* ============================================================
+   SCREENSHOT SLIDER
+   ============================================================ */
+(function () {
+  const slider = document.getElementById('schoolMateScreenshotSlider');
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll('.smpro-slide'));
+  const dots = Array.from(slider.querySelectorAll('.smpro-slider-dot'));
+  const caption = document.getElementById('smproSlideCaption');
+  const count = document.getElementById('smproSlideCount');
+  const previous = document.getElementById('smproPrevSlide');
+  const next = document.getElementById('smproNextSlide');
+  let current = 0;
+  let timer;
+  let touchStartX = 0;
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    caption.textContent = slides[current].dataset.caption;
+    count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+  }
+
+  function restartAutoPlay() {
+    window.clearInterval(timer);
+    timer = window.setInterval(() => showSlide(current + 1), 4500);
+  }
+
+  previous.addEventListener('click', () => { showSlide(current - 1); restartAutoPlay(); });
+  next.addEventListener('click', () => { showSlide(current + 1); restartAutoPlay(); });
+  dots.forEach(dot => dot.addEventListener('click', () => {
+    showSlide(Number(dot.dataset.slide));
+    restartAutoPlay();
+  }));
+
+  const viewport = slider.querySelector('.smpro-slider-viewport');
+  viewport.addEventListener('touchstart', event => {
+    touchStartX = event.changedTouches[0].screenX;
+  }, { passive: true });
+  viewport.addEventListener('touchend', event => {
+    const delta = event.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(delta) > 45) {
+      showSlide(current + (delta < 0 ? 1 : -1));
+      restartAutoPlay();
+    }
+  }, { passive: true });
+
+  slider.addEventListener('mouseenter', () => window.clearInterval(timer));
+  slider.addEventListener('mouseleave', restartAutoPlay);
+  showSlide(0);
+  restartAutoPlay();
+})();
+
+/* ============================================================
+   WHATSAPP ENQUIRY FORM (contact.html exact)
+   ============================================================ */
+(function () {
+  var form = document.getElementById('schoolmateEnquiryForm');
+  var status = document.getElementById('enquiryFormStatus');
+  if (!form) return;
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    var data = new FormData(form);
+    var lines = [
+      'SchoolMate Pro – Website Enquiry',
+      'Name: ' + (data.get('name') || ''),
+      'Mobile: ' + (data.get('mobile') || ''),
+      'Email: ' + (data.get('email') || 'Not provided'),
+      'School / Institution: ' + (data.get('school') || ''),
+      'Request: ' + (data.get('requestType') || ''),
+      'Interested Plan: ' + (data.get('plan') || 'Not decided'),
+      'Message: ' + (data.get('message') || 'Not provided')
+    ];
+
+    var waUrl = 'https://wa.me/918329201181?text=' + encodeURIComponent(lines.join('\n'));
+    if (status) status.textContent = 'Opening WhatsApp…';
+    window.open(waUrl, '_blank');
+  });
+})();
+</script>
+</body>
+</html>

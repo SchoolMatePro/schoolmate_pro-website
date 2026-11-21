@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About SchoolMate Pro, an offline desktop school data management application for Indian schools." />
+  <meta name="theme-color" content="#0b2b5e" />
+  <title>About SchoolMate Pro | SchoolMate Pro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    /* ===== RESET & VARIABLES ===== */
+    :root {
+      --navy: #082b63;
+      --blue: #1456a0;
+      --blue2: #287bd0;
+      --red: #ed2939;
+      --orange: #ff8a24;
+      --ink: #15243a;
+      --muted: #607087;
+      --pale: #f2f7ff;
+      --line: #dce7f5;
+      --white: #fff;
+      --shadow: 0 22px 60px rgba(5, 35, 80, .13);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background: #fff;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== LAYOUT CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: none;
+      margin: auto;
+      padding-left: clamp(18px, 4vw, 72px);
+      padding-right: clamp(18px, 4vw, 72px);
+    }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 43, 94, .95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    }
+    .navbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 24px;
+    }
+    .logo-area { display: flex; align-items: center; gap: 13px; min-width: 0; }
+    .logo-img {
+      display: block;
+      width: 76px;
+      height: 68px;
+      max-height: 68px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+    .brand-copy { display: flex; flex-direction: column; line-height: 1.2; }
+    .brand-name {
+      color: #fff;
+      font-size: clamp(17px, 1.6vw, 23px);
+      font-weight: 800;
+      letter-spacing: -.45px;
+    }
+    .brand-description { color: #dce9ff; font-size: 12px; font-weight: 600; margin-top: 3px; }
+    .brand-tagline {
+      color: #ffd966;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .45px;
+      margin-top: 4px;
+    }
+    .brand-tagline span { color: #9fc7ff; padding: 0 3px; }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: #eef4ff;
+      font-size: .95rem;
+      transition: .2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: #ffd966; }
+    .btn-outline-light {
+      border: 1.5px solid rgba(255, 255, 255, .5);
+      padding: 8px 20px;
+      border-radius: 40px;
+      color: #fff;
+      background: transparent;
+      font-weight: 600;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: .2s;
+    }
+    .btn-outline-light:hover { background: rgba(255, 255, 255, .1); border-color: #fff; }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 68px 0 58px;
+      background: linear-gradient(145deg, #f0f7ff 0%, #fff 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(43, 108, 176, .08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .hero > .container { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8f0fe;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: .85rem;
+      color: #1e4a8b;
+      margin-bottom: 20px;
+      border: 1px solid rgba(30, 74, 139, .15);
+    }
+    .hero-badge i { color: #2e7d32; }
+    .hero h1 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #0b2b5e;
+      margin-bottom: 18px;
+    }
+    .gradient-text {
+      background: linear-gradient(100deg, #1456a0, #287bd0 60%, #ed2939);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero .lead { max-width: 900px; font-size: 1.1rem; color: #334155; }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 80px 0; }
+    .section-alt { background: #f0f7ff; }
+    .section-title { text-align: center; margin-bottom: 48px; }
+    .section-title h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      color: #0b2b5e;
+      letter-spacing: -.5px;
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      color: #475569;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ===== CARD GRIDS ===== */
+    .roadmap-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .roadmap-card {
+      padding: 24px;
+      border: 1px solid #dce7f5;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(5, 35, 80, .04);
+    }
+    .roadmap-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #e8f0fe;
+      color: #1456a0;
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+    .roadmap-card h3 { font-size: 18px; color: #123765; margin-bottom: 8px; }
+    .roadmap-card p { font-size: 14px; color: #65758c; }
+
+    /* ===== CTA BOX ===== */
+    .cta-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 30px;
+      border-radius: 22px;
+      background: linear-gradient(120deg, #0b2b5e, #1456a0 70%, #287bd0);
+      color: #fff;
+    }
+    .cta-box h2 { font-size: clamp(22px, 2.5vw, 30px); margin-bottom: 7px; }
+    .cta-box p { color: #dce9ff; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #1e4a8b, #2b6cb0);
+      border: 1px solid rgba(255, 255, 255, .2);
+      padding: 14px 32px;
+      border-radius: 50px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 12px 20px -8px rgba(30, 74, 139, .4);
+      transition: all .3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 28px -8px rgba(30, 74, 139, .5); }
+
+    /* ===== FOOTER ===== */
+    footer { background: #0b1e3a; color: #b8c9e8; padding: 50px 0 30px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand-lockup { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+    .footer-brand-lockup .logo-img {
+      display: block;
+      width: 76px;
+      height: 68px;
+      max-height: 68px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+    .footer-brand-lockup .brand-copy { display: flex; flex-direction: column; line-height: 1.2; }
+    .footer-brand-lockup .brand-name { color: #fff; font-size: 22px; font-weight: 800; }
+    .footer-brand-lockup .brand-description { color: #dce9ff; font-size: 12px; font-weight: 600; margin-top: 3px; }
+    .footer-brand-lockup .brand-tagline { color: #ffd966; font-size: 10px; font-weight: 700; letter-spacing: .45px; margin-top: 4px; }
+    .footer-brand-lockup .brand-tagline span { color: #9fc7ff; padding: 0 3px; }
+    .footer-brand p { margin: 16px 0; font-size: .95rem; line-height: 1.7; color: #a0b8dd; }
+    .footer-links h4 { color: #fff; font-weight: 700; margin-bottom: 20px; font-size: 1.1rem; }
+    .footer-links a { display: block; color: #b8c9e8; margin-bottom: 12px; font-size: .95rem; transition: .2s; }
+    .footer-links a:hover { color: #ffd966; transform: translateX(4px); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .9rem;
+      color: #8aa3c9;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .navbar { padding: 12px 20px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .roadmap-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .navbar { padding-top: 10px; padding-bottom: 10px; }
+      .logo-img { width: 58px; height: 54px; }
+      .brand-name { font-size: 17px; }
+      .brand-description { font-size: 10px; }
+      .brand-tagline { font-size: 9px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 600px) {
+      .roadmap-card-grid { grid-template-columns: 1fr; }
+      .cta-box { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 520px) {
+      .logo-area { gap: 8px; }
+      .logo-img { width: 48px; height: 48px; }
+      .footer-brand-lockup { gap: 9px; }
+      .footer-brand-lockup .logo-img { width: 58px; height: 54px; }
+      .footer-brand-lockup .brand-name { font-size: 18px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container navbar">
+      <div class="logo-area">
+        <img alt="SchoolMate Pro Logo" class="logo-img" src="assets/schoolmate-pro-logo.png" />
+        <div class="brand-copy">
+          <div class="brand-name">SchoolMate Pro</div>
+          <div class="brand-description">School Data Management App</div>
+          <div class="brand-tagline">Simple <span>|</span> Smart <span>|</span> Secure</div>
+        </div>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="main.html#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="main.html#features">Features</a>
+        <a href="main.html#modules">Modules</a>
+        <a href="main.html#whatsapp">WhatsApp</a>
+        <a href="main.html#pricing">Pricing</a>
+        <a href="download.html">Download &amp; Install</a>
+        <a href="faq.html">FAQ</a>
+
+<a href="contact.html">Contact</a>
+        <a class="btn-outline-light" href="https://drive.google.com/file/d/1eaLpECCFVUjSjmtJNES6nn9oEG2QC7D_/view?usp=drive_link" target="_blank" rel="noopener"><i class="fas fa-download" style="margin-right:6px;"></i> Demo</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" role="button" tabindex="0">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge"><i class="fas fa-school"></i> About SchoolMate Pro</span>
+        <h1>Manage Your School <span class="gradient-text">Smarter.</span></h1>
+        <p class="lead">
+          SchoolMate Pro is an offline desktop school data management application designed for Indian schools.
+          It brings student administration, attendance, fees, examinations, reports and parent communication
+          together in one application.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== WHY ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Designed for Everyday School Administration</h2>
+          <p>Purpose-focused tools help schools manage their important records and routine work.</p>
+        </div>
+        <div class="roadmap-card-grid">
+          <article class="roadmap-card">
+            <div class="icon"><i class="fas fa-desktop"></i></div>
+            <h3>Offline Desktop Application</h3>
+            <p>Works without internet. School data is stored on the local computer, without cloud dependency.</p>
+          </article>
+          <article class="roadmap-card">
+            <div class="icon"><i class="fas fa-school"></i></div>
+            <h3>Multi-School Management</h3>
+            <p>Manage school sections from one dashboard while keeping student records and fee structures separate for each school.</p>
+          </article>
+          <article class="roadmap-card">
+            <div class="icon"><i class="fab fa-whatsapp"></i></div>
+            <h3>WhatsApp Integration</h3>
+            <p>Support parent communication through fee reminders, paid fee receipts, attendance alerts and Class Teacher Attendance Link.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CORE AREAS ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Core School Management Areas</h2>
+          <p>Key operational areas covered by the SchoolMate Pro website.</p>
+        </div>
+        <div class="roadmap-card-grid">
+          <article class="roadmap-card">
+            <h3>Student Administration</h3>
+            <p>Admissions, student profiles, documents, records and academic-year management.</p>
+          </article>
+          <article class="roadmap-card">
+            <h3>Academic Operations</h3>
+            <p>Attendance, examinations, marks entry and cumulative or descriptive progress cards.</p>
+          </article>
+          <article class="roadmap-card">
+            <h3>Fees &amp; Reporting</h3>
+            <p>Fee structures, collection, receipts, outstanding fee details, reports and certificates.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Explore Features &amp; Modules</h2>
+            <p>View the features and modules available in SchoolMate Pro.</p>
+          </div>
+          <a class="btn-primary" href="features.html">View Features &amp; Modules <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-lockup">
+            <img alt="SchoolMate Pro Logo" class="logo-img" src="assets/schoolmate-pro-logo.png" />
+            <div class="brand-copy">
+              <div class="brand-name">SchoolMate Pro</div>
+              <div class="brand-description">School Data Management App</div>
+              <div class="brand-tagline">Simple <span>|</span> Smart <span>|</span> Secure</div>
+            </div>
+          </div>
+          <p>AI-Powered Modern Offline School Management Software with WhatsApp Integration. Multi-School, Secure, and Built for Indian Schools.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <a href="about.html">About SchoolMate Pro</a>
+          <a href="features.html">Features &amp; Modules</a>
+          <a href="main.html#features">Features</a>
+          <a href="main.html#modules">Modules</a>
+          <a href="main.html#pricing">Pricing</a>
+          <a href="download.html">Demo Download</a>
+          <a href="download.html">Download &amp; Installation Guide</a>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html">Online Activation</a>
+          <a href="contact.html">License Tracking</a>
+          <a href="main.html#whatsapp">WhatsApp Integration</a>
+        </div>
+        <div class="footer-links">
+          <h4>Get in Touch</h4>
+          <a href="https://wa.me/918329201181" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Chat with us on WhatsApp</a>
+          <a href="mailto:hello@schoolmatepro.com"><i class="fas fa-envelope"></i> hello@schoolmatepro.com</a>
+          <a href="#"><i class="fas fa-globe"></i> www.schoolmatepro.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 SchoolMate Pro. All rights reserved.</div>
+        <div><i class="fas fa-shield-alt"></i> Secure &amp; Offline</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var menu = document.getElementById('menuToggle');
+      var nav = document.getElementById('navLinks');
+      if (!menu || !nav) return;
+
+      menu.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        if (open) {
+          nav.style.display = 'flex';
+          nav.style.position = 'absolute';
+          nav.style.top = '72px';
+          nav.style.left = '0';
+          nav.style.right = '0';
+          nav.style.background = '#0b2b5e';
+          nav.style.flexDirection = 'column';
+          nav.style.padding = '24px';
+          nav.style.gap = '16px';
+          nav.style.zIndex = '999';
+          nav.style.borderRadius = '0 0 24px 24px';
+        } else {
+          nav.style.display = '';
+          nav.style.position = '';
+          nav.style.top = '';
+          nav.style.left = '';
+          nav.style.right = '';
+          nav.style.background = '';
+          nav.style.flexDirection = '';
+          nav.style.padding = '';
+          nav.style.gap = '';
+          nav.style.zIndex = '';
+          nav.style.borderRadius = '';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
