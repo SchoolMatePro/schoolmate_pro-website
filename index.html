@@ -733,6 +733,39 @@ footer{background:#0b1e3a;color:#b8c9e8;padding:50px 0 30px}
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* ============================================================
+   WHATSAPP API ADDITIONAL CHARGES NOTICE
+   ============================================================ */
+.wa-cost-note,
+.pricing-cost-note{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 18px;
+  border:1px solid #cfe0f5;
+  border-left:4px solid #2b6cb0;
+  border-radius:14px;
+  background:#f1f7ff;
+  color:#28415f;
+  font-size:.92rem;
+  line-height:1.65;
+}
+.wa-cost-note{margin:22px 0 8px}
+.pricing-cost-note{width:100%;max-width:none;margin:28px 0 0;box-sizing:border-box}
+.wa-cost-note i,
+.pricing-cost-note i{
+  color:#1e4a8b;
+  font-size:1.15rem;
+  margin-top:3px;
+  flex:0 0 auto;
+}
+.wa-cost-note strong,
+.pricing-cost-note strong{color:#dc2626}
+.wa-cost-note p,
+.pricing-cost-note p{margin:0;color:#475569}
+.wa-cost-note small,
+.pricing-cost-note small{display:block;margin-top:4px;color:#64748b;font-size:.82rem}
+
 @media (max-width:1024px){
   .nav-links{display:none}
   .menu-toggle{display:block}
@@ -1052,6 +1085,14 @@ footer{background:#0b1e3a;color:#b8c9e8;padding:50px 0 30px}
         <li><i class="fas fa-check-circle"></i> Class Teacher Link — For daily student attendance &amp; absent student reports to parents.</li>
         <li><i class="fas fa-check-circle"></i> Works with your existing WhatsApp number</li>
       </ul>
+      <div class="wa-cost-note" role="note" aria-label="WhatsApp Business API additional charges">
+        <i class="fas fa-circle-info" aria-hidden="true"></i>
+        <p>
+          <strong>Meta WhatsApp Business API – Additional Charges</strong><br/>
+          Meta messaging charges are not included in the SchoolMate Pro subscription and are payable separately by each school to Meta. Each school uses its own Meta Business Account and WhatsApp number. Applicable charges depend on Meta's pricing, message category and recipient country.
+          <small>Meta's rates and pricing policies may change from time to time.</small>
+        </p>
+      </div>
       <a class="btn-primary" href="#contact" style="margin-top:12px;">
         <i class="fab fa-whatsapp"></i> Request WhatsApp Integration
       </a>
@@ -1145,6 +1186,14 @@ footer{background:#0b1e3a;color:#b8c9e8;padding:50px 0 30px}
         </ul>
         <a class="btn-primary" href="#contact" style="margin-top:12px;width:100%;justify-content:center;">Contact Sales</a>
       </div>
+    </div>
+    <div class="pricing-cost-note" role="note" aria-label="WhatsApp API additional charges">
+      <i class="fas fa-circle-info" aria-hidden="true"></i>
+      <p>
+        <strong>WhatsApp Business API – Additional Charges</strong><br/>
+        Meta WhatsApp Business API messaging charges are not included in the yearly SchoolMate Pro subscription. Each school is responsible for its own Meta Business Account, WhatsApp number and applicable messaging charges, payable separately to Meta. Charges vary according to Meta's current pricing, message category and recipient country.
+        <small>Meta's pricing and policies are subject to change.</small>
+      </p>
     </div>
   </div>
 </section>
